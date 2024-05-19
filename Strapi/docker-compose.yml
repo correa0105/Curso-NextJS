@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  blog_strapi_api:
+    container_name: blog_strapi_api
+    hostname: blog_strap_api
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: blog-strapi
+    ports:
+      - 5432:5432
