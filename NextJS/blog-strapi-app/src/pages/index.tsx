@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { PostResponse } from '../domain/posts/post';
+import { GetStaticProps } from 'next';
 
 const getPosts = async (): Promise<PostResponse> => {
   const posts = await fetch(
@@ -10,8 +10,12 @@ const getPosts = async (): Promise<PostResponse> => {
   return jsonPosts;
 };
 
-export default function Home() {
-  const [posts, setPosts] = useState<PostResponse>({
+export type HomeProps = {
+  posts: PostResponse;
+};
+
+export default function Home({ posts }: HomeProps) {
+  /* const [posts, setPosts] = useState<PostResponse>({
     data: [],
     meta: {
       pagination: {
@@ -25,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     getPosts().then((response) => setPosts(response));
-  }, []);
+  }, []); */
 
   return (
     <div>
@@ -37,3 +41,12 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPosts();
+
+  return {
+    props: { posts },
+    revalidate: 5,
+  };
+};
