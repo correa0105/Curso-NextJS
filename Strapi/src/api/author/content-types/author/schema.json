@@ -4,22 +4,22 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "Authors"
+    "displayName": "authors"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Posts": {
+    "posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
-      "mappedBy": "Author"
+      "mappedBy": "author"
     }
   }
 }

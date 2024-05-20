@@ -793,14 +793,14 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   info: {
     singularName: 'author';
     pluralName: 'authors';
-    displayName: 'Authors';
+    displayName: 'authors';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Posts: Attribute.Relation<
+    name: Attribute.String & Attribute.Required;
+    posts: Attribute.Relation<
       'api::author.author',
       'oneToMany',
       'api::post.post'
@@ -823,21 +823,20 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategorieCategorie extends Schema.CollectionType {
+export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
-    singularName: 'categorie';
+    singularName: 'category';
     pluralName: 'categories';
-    displayName: 'Categories';
-    description: '';
+    displayName: 'categories';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Posts: Attribute.Relation<
-      'api::categorie.categorie',
+    name: Attribute.String & Attribute.Required;
+    posts: Attribute.Relation<
+      'api::category.category',
       'oneToMany',
       'api::post.post'
     >;
@@ -845,13 +844,13 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::categorie.categorie',
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::categorie.categorie',
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -864,25 +863,25 @@ export interface ApiPostPost extends Schema.CollectionType {
   info: {
     singularName: 'post';
     pluralName: 'posts';
-    displayName: 'Posts';
+    displayName: 'posts';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Cover: Attribute.Media & Attribute.Required;
-    Content: Attribute.Blocks & Attribute.Required;
-    Slug: Attribute.UID<'api::post.post', 'Title'> & Attribute.Required;
-    Author: Attribute.Relation<
+    title: Attribute.String & Attribute.Required;
+    cover: Attribute.Media & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    slug: Attribute.UID<'api::post.post', 'title'> & Attribute.Required;
+    author: Attribute.Relation<
       'api::post.post',
       'manyToOne',
       'api::author.author'
     >;
-    Category: Attribute.Relation<
+    category: Attribute.Relation<
       'api::post.post',
       'manyToOne',
-      'api::categorie.categorie'
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -913,7 +912,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::author.author': ApiAuthorAuthor;
-      'api::categorie.categorie': ApiCategorieCategorie;
+      'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
     }
   }

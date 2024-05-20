@@ -2,25 +2,24 @@
   "kind": "collectionType",
   "collectionName": "categories",
   "info": {
-    "singularName": "categorie",
+    "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Categories",
-    "description": ""
+    "displayName": "categories"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Posts": {
+    "posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
-      "mappedBy": "Category"
+      "mappedBy": "category"
     }
   }
 }
