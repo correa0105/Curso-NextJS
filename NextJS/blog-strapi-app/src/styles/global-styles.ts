@@ -7,17 +7,26 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         outline: none;
+    }
+
+    html {
+        font-size: 62.5%;
         box-sizing: border-box;
     }
 
     body {
         font-family: "Inter", sans-serif;
-        background: cyan;
-        display: flex;
-        justify-content: center;
+        font-size: ${({ theme }) =>
+          theme.font.sizes.medium};
     }
 
-    body h1 {
-        margin-top: 4rem;
+    a {
+        color: ${({ theme }) => theme.colors.secondary};
+        text-decoration: none;
+        transition: opacity 300ms ease-in-out;
+
+        &:hover {
+            opacity: .6;
+        }
     }
 `;

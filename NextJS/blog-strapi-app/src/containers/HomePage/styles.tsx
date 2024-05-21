@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
-    background: #b4b4b46a;
-    padding: 1rem;
-    border-radius: .6rem;
+export const Container = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
 `;
