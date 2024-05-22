@@ -1,3 +1,4 @@
+import { Post } from '@/containers/Post';
 import { getAllPosts } from '@/data/posts/get-all-posts';
 import { getPost } from '@/data/posts/get-post';
 import { PostData } from '@/domain/posts/post';
@@ -8,7 +9,11 @@ export type DynamicPostProps = {
 };
 
 const DynamicPost = ({ post }: DynamicPostProps) => {
-  return <p>{post.attributes.title}</p>;
+  return (
+    <>
+      <Post post={post} />
+    </>
+  );
 };
 
 export default DynamicPost;
