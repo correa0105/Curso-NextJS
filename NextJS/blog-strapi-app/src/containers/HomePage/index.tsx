@@ -19,13 +19,11 @@ export default function HomePage({
   return (
     <>
       <Head>
-        <title>
-          {SITE_NAME}
-          <meta
-            name="description"
-            content="Blog feito com intuito de aprender NextJS"
-          />
-        </title>
+        <title>{SITE_NAME}</title>
+        <meta
+          name="description"
+          content="Blog feito com intuito de aprender NextJS"
+        />
       </Head>
       <Header />
       {category && (
