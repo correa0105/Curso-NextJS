@@ -22,5 +22,6 @@ export const getServerSideProps: GetServerSideProps =
 
     return {
       props: { posts, category: ctx.query.category },
+      revalidate: 5,
     };
   };
